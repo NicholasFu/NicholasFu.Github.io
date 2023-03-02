@@ -1,0 +1,51 @@
+body{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
+    font-family:'Croissant', monospace;
+    text-shadow:0 0 10px orangered, 0 0 20px orangered, 0 0 30px orangered, 0 0 40px orangered;
+}
+.bg{
+    position: absolute;
+    z-index: -1;
+    scale: 2;
+    top: 12vw;
+    max-width: 100%;
+    max-height: fit-content;
+    left:500px;
+
+}
+.word{
+    color:whitesmoke;
+    position: relative;
+    top:200px;
+    left:60px;
+    
+}
+.words{
+    color:whitesmoke;
+    position: relative;
+    top:320px;
+    left:295px;
+}
+.kun{
+    color:whitesmoke;
+    
+    left:20px;
+    top:800px;
+
+    border: 2px solid #fff;
+    border-radius: 100px;
+    padding: 20px;
+    width: 60px;
+    justify-content: center;
+    font-size:25.5px;
+ 
+     box-shadow: 0 0 2px #fff,
+              0 0 2px #fff,
+              0 0 2px #bc13fe,
+              0 0 2px #bc13fe,
+              0 0 2.8px #bc13fe,
+              inset 0 0 10px #bc13fe;
+}
+
