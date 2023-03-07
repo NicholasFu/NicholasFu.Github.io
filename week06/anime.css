@@ -1,0 +1,28 @@
+#a{
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    transition:all 1s ease-in;
+    color: white;
+    text-align:center;
+    transition-property: background-color,width,height;
+    transition-duration:1s;
+    transition-timing-function: steps(1000,start);
+    transition-delay: 0.1s;
+   
+
+
+}
+#a:hover{
+    width:400px;
+    height:400px;
+    background-color: chartreuse;
+}
+#a:active{
+    width:1000px;
+    transition-timing-function: steps(5,start);
+    /*transform: rotate(30deg);
+     transform: skew(-15deg,0);
+    */
+    transform: perspective(100px) rotateY(20deg);
+}
