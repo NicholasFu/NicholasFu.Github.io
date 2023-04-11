@@ -1,0 +1,27 @@
+main {
+    background-color: black;
+    height: 40vh;
+    padding: 40vw;
+}
+
+button {
+    padding: 10vw;
+    border-radius: 100%;
+    
+}
+
+
+button:hover{
+    background-color: lightblue;
+}
+
+button:active{
+    width:1000px;
+    transition-timing-function: steps(5,start);
+    /*transform: rotate(30deg);
+     transform: skew(-15deg,0);
+    */
+    transform: perspective(100px) rotateY(20deg);
+
+    
+}
