@@ -1,0 +1,42 @@
+
+
+
+#pics{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ig{
+width: 250px;
+height: 750px;
+display: block; 
+block-size: 130px;
+}
+
+.title{
+    text-align: center;
+    font-size: 100px;
+}
+
+.word{
+    position: relative;
+    font-size: 74px;    
+}
+
+button {
+   
+    border-radius: 100%;
+    top:2000px;
+    height: 2vh;
+    padding: 4vw;
+
+}
+.theMainPoint{
+    text-align: center;
+    border-radius: 100%;
+    top:200px;
+    height: 4vw;
+    padding: 4vw;
+
+}
