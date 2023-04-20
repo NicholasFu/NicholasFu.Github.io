@@ -1,0 +1,12 @@
+.ig{
+    width: 500px;
+    height: 1000px;
+    display: block; 
+    block-size: 200px;
+    }
+
+    #pics{
+        display: column;
+        justify-content: center;
+        align-items: center;
+    }
