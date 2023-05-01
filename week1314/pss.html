@@ -1,63 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paper, Scissors, Stones</title>
-    <style>
-        body {
-          background-color: #f5f5f5;
-          font-family: Arial, sans-serif;
-        }
-        
-        h1 {
-          text-align: center;
-          color: #333;
-        }
-        
-        #game-options {
-          display: flex;
-          justify-content: center;
-          margin-top: 50px;
-          
-        }
-        
-        .game-option {
-          display: flex;
-          align-items: center;
-          border: 4px solid #f5f5f5;
-          border-radius: 10px;
-          padding: 20px;
-          margin: 0 10px;
-          cursor: pointer;
-          transition: all 0.2s ease-in-out;
-        }
-        
-        .game-option:hover {
-          transform: scale(1.05);
-          background-color: #f5f5f5;
-          box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
-        }
-        
-        #result {
-          text-align: center;
-          font-size: 2em;
-          margin-top: 50px;
-          color: #333;
-        }
+</head>
 
-        #result .result-text {
-        margin-bottom: 10px;
+<style>
+@font-face {
+    font-family: 'Rocher';
+    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+  }
+
+body {
+    background-color: white;
+        font-family: 'Rocher';
+        text-align: center;
+        font-size: 30px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      h1 {
+        margin: 0;
       }
       
-      
+      @font-palette-values --Mint {
+        font-family: Rocher;
+        base-palette: 7;
+      }
 
-      </style>
+      .mint {
+        font-palette: --Mint;
+      }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    font-family: 'Dancing Script', cursive;
+  }
+  h3 {
+    text-align: center;
+    color: red;
+    font-style: italic;
+  }
+  
+  #game-options {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    
+  }
+  
+  .game-option {
+    display: flex;
+    align-items: center;
+    border: 4px solid #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .game-option:hover {
+    transform: scale(1.05);
+    background-color: #f5f5f5;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+  }
+  
+  #result {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 50px;
+    color: #333;
+  }
 
-</head>
+  #result .result-text {
+  margin-bottom: 10px;
+}
+
+#scoreboard{
+    font-family:'Courier New', Courier, monospace;
+    font-size:2em;
+}
+
+.theMainPoint{
+   text-align: center;
+   border-radius: 100%;
+   top:200px;
+   height: 4vw;
+   padding: 4vw;
+
+}
+.ig{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100px; 
+  height: auto;
+}
+.fpx{
+  position: absolute;
+  top: 8px;
+  left: 1120px;
+  width: 100px; 
+  height: auto;
+}
+
+
+
+
+
+
+
+</style>
+
 <body>
-    <h1>Paper, Scissors, Stones</h1>
+  
+  <h1 class="mint">Paper, Scissors, Stones</h1>
+
+  <div>
+    <img class="ig" src="1.png">
+    <img class="fpx" src="2.png">
+    </div>
+
+  <button class="reload"></button>
+
+    
+    <h2>
     <div id="game-options">
       <div class="game-option" onclick="playGame('stones')">
         <img src="fist.png" alt="Stones" width="150">
@@ -71,28 +148,90 @@
         <img src="victorysign.png" alt="Scissors" width="150">
         <p>Scissors</p>
       </div>
+      </div>
+      </h2>
     </div>
     <div id="result"></div>
+    <br>
+    <div id="scoreboard">
+  <span id="player-score">0</span> - <span id="computer-score">0</span>
+</div>
+    
+		</div>
 
     <script>
+
         function playGame(userChoice) {
-          const gameOptions = ['stones', 'paper', 'scissors'];
-          const computerChoice = gameOptions[Math.floor(Math.random() * gameOptions.length)];
-          let resultText;
-          
-          if (userChoice === computerChoice) {
-            resultText = 'Tie! Both players chose ' + userChoice;
-          } else if (userChoice === 'stones' && computerChoice === 'scissors' ||
-                     userChoice === 'paper' && computerChoice === 'stones' ||
-                     userChoice === 'scissors' && computerChoice === 'paper') {
-            resultText = 'You win! ' + userChoice + ' beats ' + computerChoice;
-          } else {
-            resultText = 'You lose! ' + computerChoice + ' beats ' + userChoice;
-          }
-          
-          const resultElement = document.getElementById('result');
-          resultElement.innerHTML = resultText;
+        const gameOptions = ['stones', 'paper', 'scissors'];
+        const computerChoice = gameOptions[Math.floor(Math.random() * gameOptions.length)];
+        let resultText;
+        
+        if (userChoice === computerChoice) {
+          resultText = 'Tie! Both players chose ' + userChoice;
+        } else if (userChoice === 'stones' && computerChoice === 'scissors' ||
+                   userChoice === 'paper' && computerChoice === 'stones' ||
+                   userChoice === 'scissors' && computerChoice === 'paper') {
+          resultText = 'You win! ' + userChoice + ' beats ' + computerChoice;
+        } else if (userChoice === 'stones' && computerChoice === 'paper' ||
+                   userChoice === 'paper' && computerChoice === 'scissors' ||
+                   userChoice === 'scissors' && computerChoice === 'stones') {
+          resultText = 'You lose! ' + computerChoice + ' beats ' + userChoice;
         }
+      
+        const resultElement = document.getElementById('result');
+        resultElement.innerHTML = resultText;
+        updateScore(resultText);
+
+      }
+        
+
+      let playerScore = 0;
+      let computerScore = 0;
+
+      function updateScore(resultText) {
+         
+          if (resultText.includes('win')) {
+             playerScore++;
+          } else if (resultText.includes('lose')) {
+              computerScore++;
+          }
+
+          const playerScoreElement = document.getElementById('player-score');
+          const computerScoreElement = document.getElementById('computer-score');
+          playerScoreElement.innerHTML = playerScore;
+          computerScoreElement.innerHTML = computerScore;
+
+          if (playerScore === 9) {
+            document.getElementById('result').innerHTML = "Game Over, you win!";
+            window.alert("Congratulations, you won! <3");
+            let userResponse = window.prompt("Type something you want:");
+            console.log("User typed:", userResponse);
+            document.body.innerHTML = "<h1>You get " + userResponse + " as you want! <br> Please be a kind person in the future and share this joy with others!!!</h1>";
+            
+
+            
+         }
+
+         if(computerScore === 9) {
+            document.getElementById('result').innerHTML = "Game Over, CLEVER BOB wins";
+            window.alert("Unfortunately, CLEVER BOB won the game and gains intelligence QAQ. ");
+            let userResponse = window.prompt("Type something you don't like:");
+            console.log("User typed:", userResponse);
+            document.body.innerHTML =  "<h1>So sad T-T , " + userResponse + "'s disaster is happening cuz CLEVER BOB collects all the things human hate! <br>He is trying to ruining us!!!</h1>";
+            
+
+         }
+         
+         const reloadBtn = document.querySelector('.reload');
+         reloadBtn.innerText = 'Restart';
+		     reloadBtn.style.display = 'flex'
+		     reloadBtn.addEventListener('click',() => {
+			  window.location.reload();
+		})
+  }
+  
+
+        
       </script>
 
 </body>
